@@ -1,4 +1,4 @@
-<header class="flex justify-between items-center px-3 py-4 lg:px-39">
+<header class="flex justify-between items-center px-3 py-4 lg:px-39 w-full">
     <a href="#" @click.prevent="window.scrollTo({top: 0, behavior: 'smooth'})"
         class="cursor-pointer w-[92px] bg-green h-[25px] lg:w-[146px] lg:h-[40px] lg:shrink-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 26" fill="none">
