@@ -54,18 +54,24 @@ class CheckoutController extends Controller
                 'age' => 37,
                 'handle' => '@dana90s',
                 'description' => 'I was skeptical, but this ADHD management hypnotherapy program helped me address underlying issues like low dopamine levels, stress and anxiety that were triggering my ADHD. What I love most about this plan is that it takes me only 10-15 minutes, and I feel like I\'m becoming more and more focused EVERY SINGLE DAY with no struggle.',
+                'img' => 'https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?s=612x612&w=0&k=20&c=EqR2Lffp4tkIYzpqYh8aYIPRr-gmZliRHRxcQC5yylY=',
+                'alt' => 'profile pic'
             ],
             [
                 'name' => 'Ashley',
                 'age' => 32,
                 'handle' => '@adh990',
                 'description' => 'ADHD is hard. Not having those patterns that are easily followed always create chaos in your life. This was my life and being always late was my worst problem I think. That\'s why I decided to try Happyo. It was easy to commit and now I\'m getting better and better every week!!',
+                'img' => 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=',
+                'alt' => 'profile pic'
             ],
             [
                 'name' => 'Jim',
                 'age' => 29,
                 'handle' => '@Rollo_jims8544',
                 'description' => 'Wish I had known about hypnotherapy earlier. I\'ve tried a lot of anti-ADHD programs, but nothing worked for me, because I needed to put in a lot of effort to see a result. But instead of putting in effort, I procrastinated. Happyo is different and hypnotherapy is actually a game-changer for people with ADHD because it\'s simply effortless.',
+                'img' => 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D',
+                'alt' => 'profile pic'
             ],
         ];
 
@@ -76,6 +82,6 @@ class CheckoutController extends Controller
             ["number" => 4, "text" => "Enjoy the first results in one week"],
         ];
 
-        return view('checkout', compact('products', 'routes', "steps"));
+        return view('checkout', compact('products', 'routes', "steps", "reviews"));
     }
 }
