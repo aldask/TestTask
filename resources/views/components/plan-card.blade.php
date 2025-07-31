@@ -1,6 +1,6 @@
 <div x-data="{
         selectedPlan: {{ collect($products)->firstWhere('default', true)['id'] }},
-    }" class="flex flex-col w-full max-w-[360px] lg:w-[648px]">
+    }" class="flex flex-col">
 
     <h1 class="text-center font-normal text-[22px] lg:text-[28px] mb-[20px]">
         Select your plan

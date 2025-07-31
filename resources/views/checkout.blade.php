@@ -13,12 +13,15 @@
 
     @include('components.offer-header')
     @include('components.header')
-    <div
-        class="flex flex-col items-center justify-center gap-[64px] space-evenly w-full max-w-[960px] mx-auto px-4">
+    <div class="flex flex-col items-center justify-center gap-[64px] space-evenly w-full max-w-[960px] mx-auto px-4">
         <div
             class="w-full max-w-[648px] flex flex-col gap-[20px] lg:gap-[40px] space-between items-center justify-center">
             @include("components.page-title")
-            @include("components.plan-card")
+            <div class="flex flex-col w-full max-w-[360px] lg:w-[648px] gap-[20px] lg:gap-[24] mb-4">
+                @include("components.plan-card")
+                @include("components.disclaimer")
+                @include("components.guarantee")
+            </div>
         </div>
     </div>
 
