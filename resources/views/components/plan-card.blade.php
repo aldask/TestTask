@@ -6,9 +6,10 @@
             const plan = this.products.find(p => p.id === id);
             window.dispatchEvent(new CustomEvent('plan-changed', { detail: plan }));
         }
-    }" class="flex flex-col">
+    }" class="flex flex-col mb-[20px] lg:mb-[24px]">
 
-    <h1 class="text-center font-normal text-[22px] lg:text-[28px] mb-[20px]">
+    <h1
+        class="text-center font-medium text-[22px] lg:text-[28px] leading-[normal] lg:leading-[34px] mb-[20px] lg:mb-[24px]">
         Select your plan
     </h1>
 
@@ -23,11 +24,11 @@
                     class="w-6 h-6 accent-[#1FA37E] cursor-pointer" @click.stop />
 
                 <div class="flex flex-col gap-[8px]" x-data="{ 
-                            months: (() => {
-                                const match = '{{ $product['slug'] }}'.match(/(\d+)-month/);
-                                return match ? parseInt(match[1]) : null;
-                            })()
-                        }">
+                                    months: (() => {
+                                        const match = '{{ $product['slug'] }}'.match(/(\d+)-month/);
+                                        return match ? parseInt(match[1]) : null;
+                                    })()
+                                }">
                     <p class="font-semibold text-base leading-[20px] capitalize">
                         {{ $product['slug'] }}
                     </p>
@@ -45,6 +46,14 @@
                                 x-text="months > 1 ? 'months' : 'month'"></span>
                         </p>
                     </template>
+                    @if($product["default"])
+                        <div class="flex items-start gap-[10px] text-white">
+                            <p
+                                class="px-[8px] py-[4px] rounded-[14px] bg-[#F33746] text-xs font-semibold leading-[16px] text-center">
+                                Most popular
+                            </p>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="w-px h-[82px] bg-[#E1E2EC]"></div>
