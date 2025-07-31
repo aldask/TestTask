@@ -13,7 +13,7 @@
 
     @include('components.offer-header')
     @include('components.header')
-    <div class="flex flex-col items-center justify-center gap-[64px] space-evenly w-full mx-auto px-4">
+    <div class="flex flex-col items-center w-full mx-auto px-4 sm:px-6 lg:px-0">
         <div
             class="w-full max-w-[648px] flex flex-col gap-[20px] lg:gap-[40px] space-between items-center justify-center">
             @include("components.page-title")
