@@ -17,7 +17,7 @@
         <div
             class="w-full max-w-[648px] flex flex-col gap-[20px] lg:gap-[40px] space-between items-center justify-center">
             @include("components.page-title")
-            <div class="flex flex-col w-full max-w-[360px] lg:w-[648px] gap-[20px] lg:gap-[24]">
+            <div class="flex flex-col w-full max-w-[360px] lg:w-[648px]">
                 @include("components.plan-card")
                 @include("components.disclaimer")
                 @include("components.guarantee")
