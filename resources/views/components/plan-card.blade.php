@@ -3,48 +3,46 @@
     window.products = @json($products);
 </script>
 
-<div x-data="planSelector()" class="flex flex-col mb-[20px] lg:mb-[24px]">
-    <h1
-        class="text-center font-medium text-[22px] lg:text-[28px] leading-[normal] lg:leading-[34px] mb-[20px] lg:mb-[24px]">
+<div x-data="planSelector()" class="flex flex-col mb-5 lg:mb-6">
+    <h2 class="lg:text-[28px] lg:leading-[34px] mb-5 lg:mb-6">
         Select your plan
-    </h1>
-    <div class="flex flex-col gap-[16px]">
+    </h2>
+    <div class="flex flex-col gap-4">
         @foreach ($products as $product)
             <label @click="notifyPlanChange({{ $product['id'] }})" :class="selectedPlan === {{ $product['id'] }} 
-                            ? 'border-2 border-[#1FA37E] bg-white rounded-[16px]' 
-                            : 'border border-[#ADB1B9] bg-white rounded-[16px]'"
-                class="flex items-center justify-between gap-[8px] px-[15px] py-4 cursor-pointer transition-all duration-300">
+                                            ? 'border-2 border-[#1FA37E] bg-white rounded-[16px]' 
+                                            : 'border border-[#ADB1B9] bg-white rounded-[16px]'"
+                class="flex items-center justify-between gap-2 px-[15px] py-4 cursor-pointer transition-all duration-300">
 
                 <input type="radio" name="plan" value="{{ $product['id'] }}" x-model="selectedPlan"
                     class="w-6 h-6 accent-[#1FA37E] cursor-pointer" @click.stop />
 
-                <div class="flex flex-col gap-[8px]" x-data="{ 
-                        months: (() => {
-                            const match = '{{ $product['slug'] }}'.match(/(\d+)-month/);
-                            return match ? parseInt(match[1]) : null;
-                        })()
-                    }">
-                    <p class="font-semibold text-base leading-[20px] capitalize">
+                <div class="flex flex-col gap-2" x-data="{ 
+                                        months: (() => {
+                                            const match = '{{ $product['slug'] }}'.match(/(\d+)-month/);
+                                            return match ? parseInt(match[1]) : null;
+                                        })()
+                                    }">
+                    <p class="font-semibold text-base leading-5 capitalize">
                         {{ $product['slug'] }}
                     </p>
                     <div class="flex items-center gap-2">
-                        <p class="line-through text-[#F33746] text-[12px] font-medium leading-[12px]">
+                        <p class="line-through text-[#F33746] text-xs font-medium leading-3">
                             €{{ number_format($product['pricing']['original_price'], 2) }}
                         </p>
-                        <p class="text-[12px] font-medium leading-[12px]">
+                        <p class="text-xs font-medium leading-3">
                             €{{ number_format($product['pricing']['price'], 2) }}
                         </p>
                     </div>
                     <template x-if="months">
-                        <p class="text-[#949494] text-[10px] font-medium leading-[12px]">
+                        <p class="text-[#949494] text-[10px] font-medium leading-3">
                             Billed every <span x-text="months"></span> <span
                                 x-text="months > 1 ? 'months' : 'month'"></span>
                         </p>
                     </template>
                     @if($product["default"])
-                        <div class="flex items-start gap-[10px] text-white">
-                            <p
-                                class="px-[8px] py-[4px] rounded-[14px] bg-[#F33746] text-xs font-semibold leading-[16px] text-center">
+                        <div class="flex items-start gap-2.5 text-white">
+                            <p class="px-2 py-1 rounded-[14px] bg-[#F33746] text-xs font-semibold leading-4 text-center">
                                 Most popular
                             </p>
                         </div>
@@ -54,7 +52,7 @@
                 <div class="w-px h-[82px] bg-[#E1E2EC]"></div>
 
                 <div class="flex flex-col justify-center items-center text-center">
-                    <p class="text-[32px] font-semibold leading-[40px] text-[#2E425F]">
+                    <p class="text-[32px] font-semibold leading-10 text-[#2E425F]">
                         €{{ number_format($product['pricing']['price'], 2) }}
                     </p>
                     <p class="text-xs font-medium leading-[18px] text-[#949494]">

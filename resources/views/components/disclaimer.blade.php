@@ -1,4 +1,4 @@
-<div class="flex self-stretch w-full" x-data="{
+<div class="flex self-stretch w-full mb-5 lg:mb-6" x-data="{
         selectedPlanData: null,
         updatePlan(event) {
             this.selectedPlanData = event.detail;
@@ -7,7 +7,7 @@
     x-init="
         window.addEventListener('plan-changed', event => updatePlan(event));
         selectedPlanData = {{ collect($products)->firstWhere('default', true) ? json_encode(collect($products)->firstWhere('default', true)) : 'null' }}">
-    <p class="text-xs leading-[18px] text-[#949494] mb-[20px] lg:mb-[24px]">
+    <p class="text-xs leading-[18px] text-[#949494] mb-5 lg:mb-6">
         By clicking Get my plan, I agree to pay
         <span
             x-text="selectedPlanData ? ('€' + selectedPlanData.pricing.price.toFixed(2).replace('.', ',')) : '-'"></span>
