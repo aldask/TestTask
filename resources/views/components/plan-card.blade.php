@@ -1,5 +1,11 @@
 <div x-data="{
         selectedPlan: {{ collect($products)->firstWhere('default', true)['id'] }},
+        products: {{ json_encode($products) }},
+        notifyPlanChange(id) {
+            this.selectedPlan = id;
+            const plan = this.products.find(p => p.id === id);
+            window.dispatchEvent(new CustomEvent('plan-changed', { detail: plan }));
+        }
     }" class="flex flex-col">
 
     <h1 class="text-center font-normal text-[22px] lg:text-[28px] mb-[20px]">
@@ -8,7 +14,7 @@
 
     <div class="flex flex-col gap-[16px]">
         @foreach ($products as $product)
-            <label @click="selectedPlan = {{ $product['id'] }}" :class="selectedPlan === {{ $product['id'] }} 
+            <label @click="notifyPlanChange({{ $product['id'] }})" :class="selectedPlan === {{ $product['id'] }} 
                         ? 'border-2 border-[#1FA37E] bg-white rounded-[16px]' 
                         : 'border border-[#ADB1B9] bg-white rounded-[16px]'"
                 class="flex items-center justify-between gap-[8px] px-[15px] py-4 cursor-pointer transition-all duration-300">
@@ -17,11 +23,11 @@
                     class="w-6 h-6 accent-[#1FA37E] cursor-pointer" @click.stop />
 
                 <div class="flex flex-col gap-[8px]" x-data="{ 
-                        months: (() => {
-                            const match = '{{ $product['slug'] }}'.match(/(\d+)-month/);
-                            return match ? parseInt(match[1]) : null;
-                        })()
-                    }">
+                            months: (() => {
+                                const match = '{{ $product['slug'] }}'.match(/(\d+)-month/);
+                                return match ? parseInt(match[1]) : null;
+                            })()
+                        }">
                     <p class="font-semibold text-base leading-[20px] capitalize">
                         {{ $product['slug'] }}
                     </p>
@@ -54,8 +60,8 @@
             </label>
         @endforeach
 
-        <button
-            class="flex items-center justify-center gap-4 px-5 py-[17px] rounded-[10px] bg-[#3A5BA9] text-white font-semibold w-full">
+        <button type="submit"
+            class="flex items-center justify-center gap-4 px-5 py-[17px] rounded-[10px] bg-[#3A5BA9] text-white font-semibold w-full cursor-pointer hover:bg-[#263d75] transition-colors duration-200 ease-in-out">
             Order now
         </button>
     </div>
