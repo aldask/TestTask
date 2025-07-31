@@ -25,7 +25,7 @@ To run this project locally, follow these steps:
 
 4. **Run the app**:
 
-   Run the app on two seperate terminals:
+   Run the app on two separate terminals:
 
    1.
    ```bash
