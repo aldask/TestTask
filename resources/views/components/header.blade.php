@@ -5,7 +5,7 @@
     </a>
     <nav>
         <a href="#"
-            class="cursor-pointer flex items-center justify-center gap-[10px] px-5 py-2 lg:py-3 rounded-full bg-[#3A5BA9] text-sm font-semibold text-white leading-[normal] shrink-0 hover:bg-[#263d75] transition-colors duration-200 ease-in-out">
+            class="cursor-pointer flex items-center justify-center gap-2.5 px-5 py-2 lg:py-3 rounded-full bg-[#3A5BA9] text-sm font-semibold text-white leading-normal shrink-0 hover:bg-[#263d75] transition-colors duration-200 ease-in-out">
             Claim my plan
         </a>
     </nav>
