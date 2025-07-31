@@ -1,33 +1,29 @@
-<div x-data="{
-        selectedPlan: {{ collect($products)->firstWhere('default', true)['id'] }},
-        products: {{ json_encode($products) }},
-        notifyPlanChange(id) {
-            this.selectedPlan = id;
-            const plan = this.products.find(p => p.id === id);
-            window.dispatchEvent(new CustomEvent('plan-changed', { detail: plan }));
-        }
-    }" class="flex flex-col">
+<script>
+    window.defaultID = @json(collect($products)->firstWhere('default', true)['id']);
+    window.products = @json($products);
+</script>
 
-    <h1 class="text-center font-normal text-[22px] lg:text-[28px] mb-[20px]">
+<div x-data="planSelector()" class="flex flex-col mb-[20px] lg:mb-[24px]">
+    <h1
+        class="text-center font-medium text-[22px] lg:text-[28px] leading-[normal] lg:leading-[34px] mb-[20px] lg:mb-[24px]">
         Select your plan
     </h1>
-
     <div class="flex flex-col gap-[16px]">
         @foreach ($products as $product)
             <label @click="notifyPlanChange({{ $product['id'] }})" :class="selectedPlan === {{ $product['id'] }} 
-                        ? 'border-2 border-[#1FA37E] bg-white rounded-[16px]' 
-                        : 'border border-[#ADB1B9] bg-white rounded-[16px]'"
+                            ? 'border-2 border-[#1FA37E] bg-white rounded-[16px]' 
+                            : 'border border-[#ADB1B9] bg-white rounded-[16px]'"
                 class="flex items-center justify-between gap-[8px] px-[15px] py-4 cursor-pointer transition-all duration-300">
 
                 <input type="radio" name="plan" value="{{ $product['id'] }}" x-model="selectedPlan"
                     class="w-6 h-6 accent-[#1FA37E] cursor-pointer" @click.stop />
 
                 <div class="flex flex-col gap-[8px]" x-data="{ 
-                            months: (() => {
-                                const match = '{{ $product['slug'] }}'.match(/(\d+)-month/);
-                                return match ? parseInt(match[1]) : null;
-                            })()
-                        }">
+                        months: (() => {
+                            const match = '{{ $product['slug'] }}'.match(/(\d+)-month/);
+                            return match ? parseInt(match[1]) : null;
+                        })()
+                    }">
                     <p class="font-semibold text-base leading-[20px] capitalize">
                         {{ $product['slug'] }}
                     </p>
@@ -45,6 +41,14 @@
                                 x-text="months > 1 ? 'months' : 'month'"></span>
                         </p>
                     </template>
+                    @if($product["default"])
+                        <div class="flex items-start gap-[10px] text-white">
+                            <p
+                                class="px-[8px] py-[4px] rounded-[14px] bg-[#F33746] text-xs font-semibold leading-[16px] text-center">
+                                Most popular
+                            </p>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="w-px h-[82px] bg-[#E1E2EC]"></div>

@@ -1,11 +1,11 @@
-<div class="flex flex-col items-center justify-center w-full mb-[47px] lg:mb-[67px]">
-    <h1 class="text-center font-normal text-[22px] lg:text-[28px] mb-[20px]">
+<div class="flex flex-col items-center w-full gap-[20px] lg:gap-[40px] mb-[48px] lg:mb-[64px]">
+    <h1 class="text-center font-medium text-[22px] lg:text-[28px] leading-[32px] lg:leading-[34px]">
         How does it work?
     </h1>
-    <div class="flex flex-col w-full items-center gap-[10px]">
+    <div class="flex flex-col w-full gap-[10px] lg:gap-[12px]">
         @foreach ($steps as $step)
             <div
-                class="flex flex-row items-center justify-start w-[333px] h-[65px] shrink-0 rounded-[10px] bg-[#F3FFFC] px-4 gap-[16px] shadow-md">
+                class="flex flex-row items-center self-stretch gap-[16px] p-[16px] lg:px-[16px] lg:py-[12px] w-full h-[65px] shrink-0 border-0 rounded-[10px] bg-[#F3FFFC] shadow-md">
                 <div class="flex relative w-[40px] h-[40px] shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                         <circle cx="20" cy="20" r="20" fill="#1FA37E" />
@@ -16,7 +16,7 @@
                     </span>
                 </div>
 
-                <p class="text-sm text-[#1B1B1F]">
+                <p class="text-[14px] leading-[18px] text-black">
                     {{ $step['text'] }}
                 </p>
             </div>

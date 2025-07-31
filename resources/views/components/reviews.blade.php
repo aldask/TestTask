@@ -1,5 +1,5 @@
-<div class="flex flex-col items-center w-full mb-[47px] lg:mb-[67px]">
-    <h1 class="text-center font-normal text-[22px] lg:text-[28px] mb-[20px]">
+<div class="flex flex-col items-center w-full gap-[20px] lg:gap-[40px] mb-[48px] lg:mb-[64px]">
+    <h1 class="text-center font-medium text-[22px] lg:text-[28px] leading-[32px] lg:leading-[34px]">
         What our users say
     </h1>
 
