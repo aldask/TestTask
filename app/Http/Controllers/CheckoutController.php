@@ -69,6 +69,13 @@ class CheckoutController extends Controller
             ],
         ];
 
-        return view('checkout', compact('products', 'routes'));
+        $steps = [
+            ["number" => 1, "text" => "Find a quiet place where you can relax"],
+            ["number" => 2, "text" => "Access the hypnotherapy recording in our member area"],
+            ["number" => 3, "text" => "Listen to one 15-minute session per day"],
+            ["number" => 4, "text" => "Enjoy the first results in one week"],
+        ];
+
+        return view('checkout', compact('products', 'routes', "steps"));
     }
 }
