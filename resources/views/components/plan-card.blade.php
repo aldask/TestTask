@@ -4,7 +4,7 @@
 </script>
 
 <div x-data="planSelector()" class="flex flex-col mb-5 lg:mb-6">
-    <h2 class="lg:text-[28px] lg:leading-[34px] mb-5 lg:mb-6">
+    <h2 class="text-[22px] lg:text-[28px] lg:leading-[34px] mb-5 lg:mb-6">
         Select your plan
     </h2>
     <div class="flex flex-col gap-4">
